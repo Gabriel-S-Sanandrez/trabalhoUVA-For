@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int ninicial, nfinal, resto, npares, nimpares;
+int parouimpar(void){
+	int nf = nfinal;
+	int ni = ninicial;
+	for( ni = ni ;  ni <= nf ; ni++){
+		int nsequencial = ni;
+		resto = nsequencial % 2;
+		if(resto == 1){
+			printf("O número %i é Impar\n", nsequencial); 
+			nimpares++;
+		}
+		else{
+			printf("O número %i é Par\n", nsequencial); 
+			npares++;
+		}
+	}
+	printf("\nDo número %i ao numero %i, existem %i números pares", ninicial, nfinal, npares);
+	printf(" e %i números ímpares", nimpares);
+}
+int main(void){
+	setlocale(LC_ALL, "Portuguese");
+
+	printf("Algoritmo par ou ímpar.\n");
+	printf("Digite o número inicial.\n");
+	scanf("%i", &ninicial);
+	printf("Digite o número final.\n");
+	scanf("%i", &nfinal);
+	printf("\n");	
+	parouimpar();
+}
